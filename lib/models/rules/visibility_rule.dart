@@ -2,8 +2,7 @@ import 'package:altforce_budget_module/models/products/industrial_product.dart';
 import 'package:altforce_budget_module/models/products/product.dart';
 import 'package:altforce_budget_module/models/products/residential_product.dart';
 import 'package:altforce_budget_module/models/rules/business_rule.dart';
-
-import '../../products/corporate_product.dart';
+import '../products/corporate_product.dart';
 
 class VisibilityRule<T extends Product> implements BusinessRule<T> {
 
