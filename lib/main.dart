@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           color: Colors.green,
         )
       ),
-      home: HomeView(),
+      home: const HomeView(),
     );
   }
 }

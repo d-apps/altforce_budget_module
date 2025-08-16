@@ -6,7 +6,7 @@ import 'package:altforce_budget_module/view/widgets/quote_tile.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatefulWidget {
-  HomeView({super.key});
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
