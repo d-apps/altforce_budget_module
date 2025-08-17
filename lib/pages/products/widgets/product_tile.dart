@@ -1,9 +1,13 @@
+import 'package:altforce_budget_module/core/route/app_routes.dart';
+import 'package:altforce_budget_module/pages/detail/models/product_detail_arguments_model.dart';
+import 'package:altforce_budget_module/pages/detail/product_detail_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import '../../../models/products/product.dart';
 import '../../detail/product_detail_page.dart';
-import '../../detail/widgets/forms/product_form_factory.dart';
+import '../../detail/widgets/dynamic_form_widget/dynamic_form_factory.dart';
 
 class ProductTile extends StatelessWidget {
   final Product product;
@@ -80,15 +84,9 @@ class ProductTile extends StatelessWidget {
   }
 
   void navigate(BuildContext context){
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => ProductDetailPage(
-                product: product,
-                index: index,
-                productFormFactory: ProductFormFactory(),
-              )
-          )
+      Get.toNamed(
+          AppRoutes.productsDetail.name,
+          arguments: ProductDetailArgumentsModel(product: product, index: index)
       );
   }
 

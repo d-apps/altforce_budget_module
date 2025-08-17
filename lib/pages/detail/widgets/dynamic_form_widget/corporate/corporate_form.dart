@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../../../models/fields/app_number_field.dart';
-import '../../../../models/fields/app_select_field.dart';
+import '../../../../../models/fields/app_number_field.dart';
+import '../../../../../models/fields/app_select_field.dart';
 
 class CorporateForm extends StatelessWidget {
   const CorporateForm({super.key});

@@ -1,6 +1,8 @@
+import 'package:altforce_budget_module/core/route/app_routes.dart';
 import 'package:altforce_budget_module/pages/products/products_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
 
 import 'core/design/app_theme_data.dart';
 
@@ -14,12 +16,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'AltForce Budget Module',
       debugShowCheckedModeBanner: false,
       theme: AppThemeData.theme,
-      home: const ProductsView(),
+      getPages: AppRoutes.values.map((e) => e.page).toList(),
+      initialRoute: AppRoutes.products.name,
     );
   }
+
+
+
 }
 

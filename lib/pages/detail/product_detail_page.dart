@@ -1,18 +1,14 @@
-import 'package:altforce_budget_module/pages/detail/widgets/forms/product_form_factory.dart';
+import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/dynamic_form_factory.dart';
+import 'package:altforce_budget_module/pages/detail/product_detail_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../models/products/product.dart';
 
-class ProductDetailPage extends StatelessWidget {
-  final Product product;
-  final int index;
-  final ProductFormFactory productFormFactory;
+class ProductDetailPage extends GetView<ProductDetailController> {
 
   const ProductDetailPage({
-    required this.product,
-    required this.index,
-    required this.productFormFactory,
     super.key
   });
 
@@ -31,25 +27,23 @@ class ProductDetailPage extends StatelessWidget {
             spacing: 8,
             children: [
               Hero(
-                tag: index,
+                tag: controller.index,
                 child: CachedNetworkImage(
-                  imageUrl: product.image,
+                  imageUrl: controller.product.image,
                   height: MediaQuery.sizeOf(context).height * 0.4,
                   width: double.infinity,
                 ),
               ),
               Text(
-                product.name,
+                controller.product.name,
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              productFormFactory.createForm(
-                  product
-              ),
+              controller.dynamicFormFactory.get(controller.product),
               Text(
-                "R\$ ${product.basePrice}",
+                "R\$ ${controller.product.basePrice}",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -57,7 +51,7 @@ class ProductDetailPage extends StatelessWidget {
               ),
               ElevatedButton(
                   onPressed: (){},
-                  child: Text("COMPRAR", style: TextStyle(color: Colors.white),)
+                  child: Text("Realizar orçamento".toUpperCase(), style: TextStyle(color: Colors.white),)
               )
             ],
           ),

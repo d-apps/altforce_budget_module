@@ -7,15 +7,20 @@ import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_animate/flutter_animate.dart';
 import 'enums/category_enum.dart';
 
-class ProductsView extends StatefulWidget {
-  const ProductsView({super.key});
+class ProductsPage extends StatefulWidget {
+  final ProductsController controller;
+  const ProductsPage({
+    required this.controller,
+    super.key
+  });
 
   @override
-  State<ProductsView> createState() => _ProductsViewState();
+  State<ProductsPage> createState() => _ProductsPageState();
 }
 
-class _ProductsViewState extends State<ProductsView> {
-  final controller = ProductsController(repository: ProductRepository());
+class _ProductsPageState extends State<ProductsPage> {
+
+  ProductsController get controller => widget.controller;
 
   @override
   void initState() {

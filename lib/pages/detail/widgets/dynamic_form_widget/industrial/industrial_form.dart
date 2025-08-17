@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../models/fields/app_number_field.dart';
-import '../../../../models/fields/app_select_field.dart';
+import '../../../../../models/fields/app_number_field.dart';
+import '../../../../../models/fields/app_select_field.dart';
 
 class IndustrialForm extends StatelessWidget {
   const IndustrialForm({super.key});
