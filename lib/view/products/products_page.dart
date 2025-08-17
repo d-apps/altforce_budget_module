@@ -1,20 +1,20 @@
 import 'package:altforce_budget_module/repositories/product_repository.dart';
-import 'package:altforce_budget_module/view/quote/quote_controller.dart';
-import 'package:altforce_budget_module/view/quote/widgets/category_widget.dart';
-import 'package:altforce_budget_module/view/quote/widgets/quote_tile.dart';
+import 'package:altforce_budget_module/view/products/products_controller.dart';
+import 'package:altforce_budget_module/view/products/widgets/category_widget.dart';
+import 'package:altforce_budget_module/view/products/widgets/product_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'enums/category_enum.dart';
 
-class HomeView extends StatefulWidget {
-  const HomeView({super.key});
+class ProductsView extends StatefulWidget {
+  const ProductsView({super.key});
 
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<ProductsView> createState() => _ProductsViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
-  final controller = QuoteController(repository: ProductRepository());
+class _ProductsViewState extends State<ProductsView> {
+  final controller = ProductsController(repository: ProductRepository());
 
   @override
   void initState() {
@@ -85,7 +85,7 @@ class _HomeViewState extends State<HomeView> {
                       itemCount: controller.products.length,
                       itemBuilder: (context, index) {
                         final product = controller.products[index];
-                        return QuoteTile(
+                        return ProductTile(
                           product: product,
                           index: index,
                         );

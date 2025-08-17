@@ -8,10 +8,10 @@ import 'package:flutter/cupertino.dart';
 import '../../models/products/industrial_product.dart';
 import 'enums/category_enum.dart';
 
-class QuoteController extends ChangeNotifier {
+class ProductsController extends ChangeNotifier {
   final IRepository<Product> _repository;
 
-  QuoteController({
+  ProductsController({
     required IRepository<Product> repository,
   }) : _repository = repository ;
 

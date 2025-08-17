@@ -1,4 +1,4 @@
-import 'package:altforce_budget_module/view/quote/quote_page.dart';
+import 'package:altforce_budget_module/view/products/products_page.dart';
 import 'package:flutter/material.dart';
 
 import 'core/design/app_theme_data.dart';
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'AltForce Budget Module',
       debugShowCheckedModeBanner: false,
       theme: AppThemeData.theme,
-      home: const HomeView(),
+      home: const ProductsView(),
     );
   }
 }

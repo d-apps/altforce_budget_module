@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import '../../models/products/product.dart';
 
-class QuoteDetailPage extends StatelessWidget {
+class ProductDetailPage extends StatelessWidget {
   final Product product;
   final int index;
   final ProductFormFactory productFormFactory;
 
-  const QuoteDetailPage({
+  const ProductDetailPage({
     required this.product,
     required this.index,
     required this.productFormFactory,

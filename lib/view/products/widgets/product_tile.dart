@@ -2,13 +2,13 @@ import 'package:altforce_budget_module/view/detail/widgets/forms/product_form_fa
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../models/products/product.dart';
-import '../../detail/quote_detail_page.dart';
+import '../../detail/product_detail_page.dart';
 
-class QuoteTile extends StatelessWidget {
+class ProductTile extends StatelessWidget {
   final Product product;
   final int index;
 
-  const QuoteTile({
+  const ProductTile({
     required this.product,
     required this.index,
     super.key
@@ -79,7 +79,7 @@ class QuoteTile extends StatelessWidget {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => QuoteDetailPage(
+              builder: (context) => ProductDetailPage(
                 product: product,
                 index: index,
                 productFormFactory: ProductFormFactory(),
