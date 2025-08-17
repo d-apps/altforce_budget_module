@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import '../products/product.dart';
 
-abstract class IFormField<T> {
+abstract class IFormField<T> extends StatelessWidget {
   final String label;
   final void Function(String?)? onChanged;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
 
-  IFormField({
+  const IFormField({
     required this.label,
     this.onChanged,
     this.keyboardType,
     this.inputFormatters,
+    super.key
   });
 
-  Widget build() {
+  @override
+  Widget build(BuildContext context) {
     return TextField(
       keyboardType: keyboardType,
       decoration: InputDecoration(

@@ -1,5 +1,7 @@
-import 'package:altforce_budget_module/view/quote_page.dart';
+import 'package:altforce_budget_module/view/quote/quote_page.dart';
 import 'package:flutter/material.dart';
+
+import 'core/design/app_theme_data.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,23 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'AltForce Budget Module',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.white
-        ),
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
-            backgroundColor: Colors.green,
-            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-            minimumSize: const Size(0, 30),
-          ),
-        ),
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
-        progressIndicatorTheme: ProgressIndicatorThemeData(
-          color: Colors.green,
-        )
-      ),
+      theme: AppThemeData.theme,
       home: const HomeView(),
     );
   }

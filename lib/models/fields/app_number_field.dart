@@ -1,13 +1,15 @@
 import 'package:flutter/services.dart';
 import 'i_form_field.dart' as ff;
 
-class NumberField extends ff.IFormField {
+class AppNumberField extends ff.IFormField {
 
-  NumberField({
+  AppNumberField({
     required super.label,
     required super.onChanged,
     super.keyboardType = TextInputType.number,
-  }) : super(inputFormatters: [
+    super.key
+  }) : super(
+      inputFormatters: [
           FilteringTextInputFormatter.digitsOnly,
-        ]);
+  ]);
 }

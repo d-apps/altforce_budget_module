@@ -6,42 +6,6 @@ import '../core/result/result.dart';
 class ProductRepository implements IRepository<Product> {
 
   @override
-  Future<Result<void>> add(Product item) async {
-    try {
-      return Result.success(null);
-    } catch(e){
-      return Result.failure(e.toString());
-    }
-  }
-
-  @override
-  Future<Result<void>> delete(String id) async {
-    try {
-      return Result.success(null);
-    } catch(e){
-      return Result.failure(e.toString());
-    }
-  }
-
-  @override
-  Future<Result<Product?>> getById(String id) async {
-    try {
-      return Result.success(null);
-    } catch(e){
-      return Result.failure(e.toString());
-    }
-  }
-
-  @override
-  Future<Result<void>> update(Product item) async {
-    try {
-      return Result.success(null);
-    } catch(e){
-      return Result.failure(e.toString());
-    }
-  }
-
-  @override
   Future<Result<List<Product>>> getAll() async {
     try {
       final products = <Product>[
