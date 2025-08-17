@@ -1,9 +1,11 @@
-import 'package:altforce_budget_module/view/products/products_page.dart';
+import 'package:altforce_budget_module/pages/products/products_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import 'core/design/app_theme_data.dart';
 
 void main() {
+  Animate.restartOnHotReload = true;
   runApp(const MyApp());
 }
 

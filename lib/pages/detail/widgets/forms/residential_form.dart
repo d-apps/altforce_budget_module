@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import '../../../../models/fields/app_number_field.dart';
 import '../../../../models/fields/app_select_field.dart';
 
 class ResidentialForm extends StatelessWidget {

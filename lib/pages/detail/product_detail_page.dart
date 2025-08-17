@@ -1,4 +1,5 @@
-import 'package:altforce_budget_module/view/detail/widgets/forms/product_form_factory.dart';
+import 'package:altforce_budget_module/pages/detail/widgets/forms/product_form_factory.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/products/product.dart';
@@ -30,9 +31,9 @@ class ProductDetailPage extends StatelessWidget {
             spacing: 8,
             children: [
               Hero(
-                tag: ValueKey(index),
-                child: Image.network(
-                  product.image,
+                tag: index,
+                child: CachedNetworkImage(
+                  imageUrl: product.image,
                   height: MediaQuery.sizeOf(context).height * 0.4,
                   width: double.infinity,
                 ),

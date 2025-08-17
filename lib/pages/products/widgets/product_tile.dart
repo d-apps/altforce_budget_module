@@ -1,8 +1,9 @@
-import 'package:altforce_budget_module/view/detail/widgets/forms/product_form_factory.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../models/products/product.dart';
 import '../../detail/product_detail_page.dart';
+import '../../detail/widgets/forms/product_form_factory.dart';
 
 class ProductTile extends StatelessWidget {
   final Product product;
@@ -31,10 +32,13 @@ class ProductTile extends StatelessWidget {
                 height: 120,
                 width: 120,
                 child: Hero(
-                  tag: ValueKey(index),
-                  child: Image.network(
-                      product.image,
+                  tag: index,
+                  child: CachedNetworkImage(
+                      imageUrl: product.image,
                       fit: BoxFit.cover,
+                    errorWidget: (context, url, error) {
+                      return const Icon(Icons.error, color: Colors.red);
+                    },
                   ),
                 ),
               ),

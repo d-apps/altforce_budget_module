@@ -1,9 +1,10 @@
+import 'package:altforce_budget_module/pages/products/products_controller.dart';
+import 'package:altforce_budget_module/pages/products/widgets/category_widget.dart';
+import 'package:altforce_budget_module/pages/products/widgets/product_tile.dart';
 import 'package:altforce_budget_module/repositories/product_repository.dart';
-import 'package:altforce_budget_module/view/products/products_controller.dart';
-import 'package:altforce_budget_module/view/products/widgets/category_widget.dart';
-import 'package:altforce_budget_module/view/products/widgets/product_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
+import 'package:flutter_animate/flutter_animate.dart';
 import 'enums/category_enum.dart';
 
 class ProductsView extends StatefulWidget {
@@ -30,6 +31,12 @@ class _ProductsViewState extends State<ProductsView> {
         title: Image.asset(
           "assets/logo.png",
           width: MediaQuery.sizeOf(context).width * 0.25,
+        ).animate()
+        .moveX(
+          duration: 700.ms,
+          curve: Curves.easeInOut,
+          begin: -MediaQuery.sizeOf(context).width * 0.25,
+          end: 0.0
         ),
         actions: [
           Icon(Icons.notifications, color: Colors.green),
@@ -57,7 +64,7 @@ class _ProductsViewState extends State<ProductsView> {
             ListenableBuilder(
                 listenable: controller,
                 builder: (context, child) => Text(
-                  controller.category.name,
+                  "Produtos ${controller.category.name}",
                   style: TextStyle(
                       fontSize: 18,
                       color: Colors.green,
