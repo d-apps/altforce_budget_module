@@ -1,3 +1,4 @@
+import 'package:altforce_budget_module/view/detail/widgets/forms/product_form_factory.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../models/products/product.dart';
@@ -81,6 +82,7 @@ class QuoteTile extends StatelessWidget {
               builder: (context) => QuoteDetailPage(
                 product: product,
                 index: index,
+                productFormFactory: ProductFormFactory(),
               )
           )
       );

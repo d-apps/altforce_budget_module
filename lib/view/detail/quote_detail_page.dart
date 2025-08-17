@@ -1,4 +1,4 @@
-import 'package:altforce_budget_module/view/detail/widgets/dynamic_form_field.dart';
+import 'package:altforce_budget_module/view/detail/widgets/forms/product_form_factory.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/products/product.dart';
@@ -6,10 +6,12 @@ import '../../models/products/product.dart';
 class QuoteDetailPage extends StatelessWidget {
   final Product product;
   final int index;
+  final ProductFormFactory productFormFactory;
 
   const QuoteDetailPage({
     required this.product,
     required this.index,
+    required this.productFormFactory,
     super.key
   });
 
@@ -42,8 +44,8 @@ class QuoteDetailPage extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              DynamicFormField(
-                  product: product,
+              productFormFactory.createForm(
+                  product
               ),
               Text(
                 "R\$ ${product.basePrice}",
