@@ -2,8 +2,9 @@ import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/
 import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/industrial/enums/industrial_capacity_enum.dart';
 import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/industrial/enums/voltage_enum.dart';
 import 'package:flutter/material.dart';
+import '../../../../../core/constants/attributes_keys.dart';
 import '../../../../../models/fields/app_select_field.dart';
-import '../../../product_detail_controller.dart';
+import '../../../presentation/product_detail_controller.dart';
 
 class IndustrialForm extends StatefulWidget {
   final ProductDetailController controller;
@@ -36,7 +37,7 @@ class _IndustrialFormState extends State<IndustrialForm> {
             selectedValue: voltage,
             onSelected: (v){
               controller.product.setAttribute(
-                  "voltage",
+                  AttributeKeys.industrial.voltage,
                   v.toString()
               );
               setState(() {
@@ -50,7 +51,7 @@ class _IndustrialFormState extends State<IndustrialForm> {
             selectedValue: certification,
             onSelected: (v){
               controller.product.setAttribute(
-                  "certification",
+                  AttributeKeys.industrial.certification,
                   v.toString()
               );
               setState(() {
@@ -64,7 +65,7 @@ class _IndustrialFormState extends State<IndustrialForm> {
             selectedValue: capacity,
             onSelected: (v){
               controller.product.setAttribute(
-                  "industrial_capacity",
+                  AttributeKeys.industrial.industrialCapacity,
                   v.toString()
               );
               setState(() {

@@ -1,11 +1,11 @@
-import 'package:altforce_budget_module/pages/products/products_controller.dart';
+import 'package:altforce_budget_module/pages/products/presentation/products_controller.dart';
 import 'package:altforce_budget_module/pages/products/widgets/category_widget.dart';
 import 'package:altforce_budget_module/pages/products/widgets/product_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
-import 'enums/category_enum.dart';
+import '../enums/category_enum.dart';
 
 class ProductsPage extends StatefulWidget {
 
@@ -33,10 +33,10 @@ class _ProductsPageState extends State<ProductsPage> {
           width: MediaQuery.sizeOf(context).width * 0.25,
         ).animate()
         .moveX(
-          duration: 700.ms,
-          curve: Curves.easeInOut,
-          begin: -MediaQuery.sizeOf(context).width * 0.25,
-          end: 0.0
+          duration: 800.ms,
+          curve: Curves.ease,
+          begin: -MediaQuery.sizeOf(context).width * 0.30,
+          end: 0.0,
         ),
         actions: [
           Icon(Icons.notifications, color: Colors.green),

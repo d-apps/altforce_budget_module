@@ -1,10 +1,8 @@
-import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/dynamic_form_factory.dart';
-import 'package:altforce_budget_module/pages/detail/product_detail_controller.dart';
+import 'package:altforce_budget_module/core/route/app_routes.dart';
+import 'package:altforce_budget_module/pages/detail/presentation/product_detail_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../models/products/product.dart';
 
 class ProductDetailPage extends StatefulWidget {
   const ProductDetailPage({
@@ -50,44 +48,22 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                controller.dynamicFormFactory.makeDynamicFormWidget(controller),
+                controller.dynamicFormFactory
+                    .makeDynamicFormWidget(controller),
                 Text(
-                  "R\$ ${controller.product.basePrice * controller.product.quantity}",
+                  "R\$ ${controller.product.price * controller.product.quantity}",
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Quantidade:"),
-                    Row(
-                      children: [
-                        IconButton(
-                          onPressed: (){
-                            controller.product.decrementQuantity();
-                            setState(() {});
-                          },
-                          icon: Icon(Icons.remove),
-                        ),
-                        Text(controller.product.quantity.toString()),
-                        IconButton(
-                          onPressed: (){
-                            controller.product.incrementQuantity();
-                            setState(() {});
-                          },
-                          icon: Icon(Icons.add),
-                        ),
-                      ],
-                    )
-                  ],
-                ),
                 ElevatedButton(
-                    onPressed: (){
-                      print(controller.product);
-                    },
-                    child: Text("Realizar orçamento".toUpperCase(),
+                    onPressed: () => Get.toNamed(
+                        AppRoutes.budget.name,
+                        arguments: controller.product
+                    ),
+                    child: Text(
+                        "Realizar orçamento".toUpperCase(),
                       style: TextStyle(color: Colors.white)
                     )
                 ),

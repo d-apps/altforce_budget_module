@@ -1,5 +1,4 @@
-import 'package:altforce_budget_module/models/products/product.dart';
-import 'package:altforce_budget_module/pages/detail/product_detail_controller.dart';
+import 'package:altforce_budget_module/pages/detail/presentation/product_detail_controller.dart';
 import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/dynamic_form_factory.dart';
 import 'package:get/get.dart';
 

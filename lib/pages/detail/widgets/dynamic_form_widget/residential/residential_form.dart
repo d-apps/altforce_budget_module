@@ -1,4 +1,5 @@
-import 'package:altforce_budget_module/pages/detail/product_detail_controller.dart';
+import 'package:altforce_budget_module/core/constants/attributes_keys.dart';
+import 'package:altforce_budget_module/pages/detail/presentation/product_detail_controller.dart';
 import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/residential/enums/color_enum.dart';
 import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/residential/enums/finish_enum.dart';
 import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/residential/enums/warranty_enum.dart';
@@ -35,7 +36,7 @@ class _ResidentialFormState extends State<ResidentialForm> {
             selectedValue: color,
             onSelected: (v){
               controller.product.setAttribute(
-                "color",
+                AttributeKeys.residential.color,
                 v.toString(),
               );
               setState(() {
@@ -49,7 +50,7 @@ class _ResidentialFormState extends State<ResidentialForm> {
           selectedValue: warranty,
           onSelected: (v){
             controller.product.setAttribute(
-              "warranty",
+              AttributeKeys.residential.warranty,
               v.toString(),
             );
             setState(() {
@@ -63,7 +64,7 @@ class _ResidentialFormState extends State<ResidentialForm> {
           selectedValue: finish,
           onSelected: (v){
             controller.product.setAttribute(
-              "finish",
+              AttributeKeys.residential.finish,
               v.toString(),
             );
             setState(() {

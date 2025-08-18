@@ -1,4 +1,4 @@
-import 'package:altforce_budget_module/pages/detail/product_detail_controller.dart';
+import 'package:altforce_budget_module/pages/detail/presentation/product_detail_controller.dart';
 import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/residential/residential_form.dart';
 import 'package:flutter/material.dart';
 import 'package:altforce_budget_module/models/products/corporate_product.dart';

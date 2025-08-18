@@ -4,8 +4,9 @@ import 'package:altforce_budget_module/models/products/product.dart';
 import 'package:altforce_budget_module/models/products/residential_product.dart';
 import 'package:altforce_budget_module/repositories/i_repository.dart';
 import 'package:get/get.dart';
-import '../../models/products/industrial_product.dart';
-import 'enums/category_enum.dart';
+
+import '../../../models/products/industrial_product.dart';
+import '../enums/category_enum.dart';
 
 class ProductsController extends GetxController {
   final IRepository<Product> _repository;
