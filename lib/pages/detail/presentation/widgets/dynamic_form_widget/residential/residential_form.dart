@@ -1,10 +1,11 @@
 import 'package:altforce_budget_module/core/constants/attributes_keys.dart';
 import 'package:altforce_budget_module/pages/detail/presentation/product_detail_controller.dart';
-import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/residential/enums/color_enum.dart';
-import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/residential/enums/finish_enum.dart';
-import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/residential/enums/warranty_enum.dart';
 import 'package:flutter/material.dart';
-import '../../../../../models/fields/app_select_field.dart';
+
+import '../../../../../../models/fields/app_select_field.dart';
+import 'enums/color_enum.dart';
+import 'enums/finish_enum.dart';
+import 'enums/warranty_enum.dart';
 
 class ResidentialForm extends StatefulWidget {
   final ProductDetailController controller;

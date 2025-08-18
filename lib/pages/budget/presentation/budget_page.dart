@@ -1,5 +1,5 @@
 import 'package:altforce_budget_module/models/fields/app_number_field.dart';
-import 'package:altforce_budget_module/pages/budget/widgets/budget_text.dart';
+import 'package:altforce_budget_module/pages/budget/presentation/widgets/budget_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

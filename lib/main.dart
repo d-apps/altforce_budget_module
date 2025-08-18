@@ -1,3 +1,4 @@
+import 'package:altforce_budget_module/core/lang/translation_service.dart';
 import 'package:altforce_budget_module/core/route/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -20,6 +21,8 @@ class MyApp extends StatelessWidget {
       theme: AppThemeData.theme,
       getPages: AppRoutes.values.map((e) => e.page).toList(),
       initialRoute: AppRoutes.products.name,
+      locale: const Locale('pt', 'BR'),
+      translations: TranslationService(),
     );
   }
 

@@ -1,6 +1,6 @@
 import 'package:altforce_budget_module/pages/products/presentation/products_controller.dart';
-import 'package:altforce_budget_module/pages/products/widgets/category_widget.dart';
-import 'package:altforce_budget_module/pages/products/widgets/product_tile.dart';
+import 'package:altforce_budget_module/pages/products/presentation/widgets/category_widget.dart';
+import 'package:altforce_budget_module/pages/products/presentation/widgets/product_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_animate/flutter_animate.dart';

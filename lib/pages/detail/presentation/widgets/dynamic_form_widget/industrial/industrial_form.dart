@@ -1,10 +1,10 @@
-import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/industrial/enums/certification_enum.dart';
-import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/industrial/enums/industrial_capacity_enum.dart';
-import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/industrial/enums/voltage_enum.dart';
 import 'package:flutter/material.dart';
-import '../../../../../core/constants/attributes_keys.dart';
-import '../../../../../models/fields/app_select_field.dart';
-import '../../../presentation/product_detail_controller.dart';
+import '../../../../../../core/constants/attributes_keys.dart';
+import '../../../../../../models/fields/app_select_field.dart';
+import '../../../product_detail_controller.dart';
+import 'enums/certification_enum.dart';
+import 'enums/industrial_capacity_enum.dart';
+import 'enums/voltage_enum.dart';
 
 class IndustrialForm extends StatefulWidget {
   final ProductDetailController controller;

@@ -4,7 +4,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import '../../../models/products/product.dart';
+
+import '../../../../models/products/product.dart';
 
 class ProductTile extends StatelessWidget {
   final Product product;
@@ -81,9 +82,10 @@ class ProductTile extends StatelessWidget {
   }
 
   void navigate(BuildContext context){
+    final argument = ProductDetailArgumentsModel(product: product, index: index);
       Get.toNamed(
           AppRoutes.productsDetail.name,
-          arguments: ProductDetailArgumentsModel(product: product, index: index)
+          arguments: argument
       );
   }
 

@@ -58,10 +58,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   ),
                 ),
                 ElevatedButton(
-                    onPressed: () => Get.toNamed(
-                        AppRoutes.budget.name,
-                        arguments: controller.product
-                    ),
+                    onPressed: () => controller.onSendBudget(),
                     child: Text(
                         "Realizar orçamento".toUpperCase(),
                       style: TextStyle(color: Colors.white)

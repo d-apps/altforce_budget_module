@@ -1,12 +1,10 @@
 import 'package:altforce_budget_module/core/constants/attributes_keys.dart';
-import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/corporate/enums/corporate_contract_enum.dart';
-import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/corporate/enums/corporate_sla_enum.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import '../../../../../models/fields/app_decimal_field.dart';
-import '../../../../../models/fields/app_number_field.dart';
-import '../../../../../models/fields/app_select_field.dart';
-import '../../../presentation/product_detail_controller.dart';
+import '../../../../../../models/fields/app_decimal_field.dart';
+import '../../../../../../models/fields/app_select_field.dart';
+import '../../../product_detail_controller.dart';
+import 'enums/corporate_contract_enum.dart';
+import 'enums/corporate_sla_enum.dart';
 
 class CorporateForm extends StatefulWidget {
   final ProductDetailController controller;

@@ -44,4 +44,13 @@ abstract class Product implements BaseModel {
     }
   }
 
+  Product.empty()
+      : id = '',
+        name = '',
+        image = '',
+        type = '',
+        price = 0.0,
+        quantity = 1,
+        attributes = {};
+
 }
