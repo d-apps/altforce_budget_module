@@ -8,10 +8,7 @@ final fakeIndustrialProduct = IndustrialProduct(
     image: "https://i.imgur.com/AnQnyTT.png",
     price: 4500,
     type: 'IndustrialProduct',
-    attributes: {
-      'voltage': 380,
-      'certification': 'ISO 9001',
-    }
+    attributes: {}
 );
 
 final fakeResidentialProduct = ResidentialProduct(
@@ -20,10 +17,7 @@ final fakeResidentialProduct = ResidentialProduct(
     image: "https://i.imgur.com/SejIMh1.png",
     price: 350,
     type: 'ResidentialProduct',
-    attributes: {
-      "color": "Verde",
-      "warrantyMonths": 12,
-    }
+    attributes: {}
 );
 
 final fakeCorporateProduct = CorporateProduct(

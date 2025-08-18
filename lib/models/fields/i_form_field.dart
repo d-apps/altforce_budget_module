@@ -7,6 +7,7 @@ abstract class IFormField<T> extends StatelessWidget {
   final void Function(String?)? onChanged;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
+  final String? initialValue;
 
   const IFormField({
     required this.label,
@@ -14,12 +15,14 @@ abstract class IFormField<T> extends StatelessWidget {
     this.onChanged,
     this.keyboardType,
     this.inputFormatters,
+    this.initialValue,
     super.key
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: initialValue,
       controller: controller,
       keyboardType: keyboardType,
       decoration: InputDecoration(

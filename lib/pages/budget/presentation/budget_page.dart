@@ -1,3 +1,4 @@
+import 'package:altforce_budget_module/models/fields/app_number_field.dart';
 import 'package:altforce_budget_module/pages/budget/widgets/budget_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -44,34 +45,22 @@ class _BudgetPageState extends State<BudgetPage> {
             ...controller.product.attributes.map((key, value) {
               return MapEntry(key, BudgetText(label: key, text: value.toString()));
             }).values,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text("Quantidade:"),
-                Row(
-                  children: [
-                    IconButton(
-                      onPressed: (){
-                        controller.product
-                            .decrementQuantity();
-                        setState(() {});
-                      },
-                      icon: Icon(Icons.remove),
-                    ),
-                    Text(controller.product.quantity
-                        .toString()),
-                    IconButton(
-                      onPressed: (){
-                        controller.product
-                            .incrementQuantity();
-                        setState(() {});
-                      },
-                      icon: Icon(Icons.add),
-                    ),
-                  ],
-                )
-              ],
+            AppNumberField(
+                initialValue: "1",
+                label: "Quantidade",
+                onChanged: (v){
+                  controller.product.quantity = int.tryParse(v!) ?? 1;
+                  setState(() {});
+                }
             ),
+            BudgetText(
+                label: "Valor",
+                text: "R\$ ${controller.product.price}"
+            ),
+            BudgetText(
+                label: "Total",
+                text: "R\$ ${controller.product.price * controller.product.quantity}"
+            )
           ],
         ),
       ),

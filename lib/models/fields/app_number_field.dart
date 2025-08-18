@@ -7,6 +7,7 @@ class AppNumberField extends ff.IFormField {
     required super.label,
     required super.onChanged,
     super.controller,
+    super.initialValue,
     super.key
   }) : super(
     keyboardType: TextInputType.number,
