@@ -1,9 +1,7 @@
 import 'package:altforce_budget_module/core/route/app_routes.dart';
-import 'package:altforce_budget_module/pages/products/products_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
-
 import 'core/design/app_theme_data.dart';
 
 void main() {
@@ -24,8 +22,6 @@ class MyApp extends StatelessWidget {
       initialRoute: AppRoutes.products.name,
     );
   }
-
-
 
 }
 

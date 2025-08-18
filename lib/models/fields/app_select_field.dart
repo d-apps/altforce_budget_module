@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class AppSelectField<T> extends ff.IFormField<T> {
   final T? selectedValue;
   final List<T> items;
-  final ValueChanged<T?> onSelected;
+  final ValueChanged<T> onSelected;
 
   const AppSelectField({
     required super.label,

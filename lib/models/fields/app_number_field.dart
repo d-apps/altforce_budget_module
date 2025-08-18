@@ -6,9 +6,10 @@ class AppNumberField extends ff.IFormField {
   AppNumberField({
     required super.label,
     required super.onChanged,
-    super.keyboardType = TextInputType.number,
+    super.controller,
     super.key
   }) : super(
+    keyboardType: TextInputType.number,
       inputFormatters: [
           FilteringTextInputFormatter.digitsOnly,
   ]);

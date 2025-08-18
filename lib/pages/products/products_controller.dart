@@ -3,38 +3,41 @@ import 'package:altforce_budget_module/models/products/corporate_product.dart';
 import 'package:altforce_budget_module/models/products/product.dart';
 import 'package:altforce_budget_module/models/products/residential_product.dart';
 import 'package:altforce_budget_module/repositories/i_repository.dart';
-import 'package:flutter/cupertino.dart';
-
+import 'package:get/get.dart';
 import '../../models/products/industrial_product.dart';
 import 'enums/category_enum.dart';
 
-class ProductsController extends ChangeNotifier {
+class ProductsController extends GetxController {
   final IRepository<Product> _repository;
 
   ProductsController({
     required IRepository<Product> repository,
-  }) : _repository = repository ;
+  }) : _repository = repository;
 
-  bool isLoading = false;
+  @override
+  void onReady() {
+    getProducts();
+    super.onReady();
+  }
+
+  final isLoading = false.obs;
   final _productsSourceList = <Product>[];
-  final products = <Product>[];
-  CategoryEnum category = CategoryEnum.industrial;
+  final products = <Product>[].obs;
+  final category = CategoryEnum.industrial.obs;
 
   void setLoading(bool value) {
-    isLoading = value;
-    notifyListeners();
+    isLoading.value = value;
   }
 
   Future<void> getProducts() async {
     setLoading(true);
     await Future.delayed(const Duration(seconds: 2));
-    products.clear();
     final result = await _repository.getAll();
     switch(result){
       case Success<List<Product>>():
         final fetchedProducts = result.data;
-        _productsSourceList.addAll(fetchedProducts);
-        onCategorySelected(category);
+        _productsSourceList.assignAll(fetchedProducts);
+        onCategorySelected(category.value);
         setLoading(false);
       case Failure<List<Product>>():
         setLoading(false);
@@ -43,9 +46,14 @@ class ProductsController extends ChangeNotifier {
   }
 
   void onCategorySelected(CategoryEnum category) {
-    this.category = category;
+    this.category.value = category;
+    this.category.refresh();
+    filterProductList();
+  }
+
+  void filterProductList(){
     late List<Product> list;
-    switch(category){
+    switch(category.value){
       case CategoryEnum.industrial:
         list = _productsSourceList
             .whereType<IndustrialProduct>().toList();
@@ -56,9 +64,7 @@ class ProductsController extends ChangeNotifier {
         list = _productsSourceList
             .whereType<CorporateProduct>().toList();
     }
-    products
-      ..clear()
-      ..addAll(list);
-        notifyListeners();
+    products.assignAll(list);
   }
+
 }

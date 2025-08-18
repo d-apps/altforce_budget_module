@@ -1,33 +1,76 @@
+import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/industrial/enums/certification_enum.dart';
+import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/industrial/enums/industrial_capacity_enum.dart';
+import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/industrial/enums/voltage_enum.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../models/fields/app_number_field.dart';
 import '../../../../../models/fields/app_select_field.dart';
+import '../../../product_detail_controller.dart';
 
-class IndustrialForm extends StatelessWidget {
-  const IndustrialForm({super.key});
+class IndustrialForm extends StatefulWidget {
+  final ProductDetailController controller;
+
+  const IndustrialForm({
+    required this.controller,
+    super.key
+  });
+
+  @override
+  State<IndustrialForm> createState() => _IndustrialFormState();
+}
+
+class _IndustrialFormState extends State<IndustrialForm> {
+
+  ProductDetailController get controller => widget.controller;
+  VoltageEnum? voltage;
+  CertificationEnum? certification;
+  IndustrialCapacityEnum? capacity;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: 8,
       children: [
-        AppSelectField<String>(
+        AppSelectField<VoltageEnum>(
             label: "Voltagem",
-            items: ["200V", "380V"],
-            selectedValue: null,
-            onSelected: (v){}
+            items: VoltageEnum.values.toList(),
+            selectedValue: voltage,
+            onSelected: (v){
+              controller.product.setAttribute(
+                  "voltage",
+                  v.toString()
+              );
+              setState(() {
+                voltage = v;
+              });
+            }
         ),
-        const SizedBox(height: 8),
-        AppSelectField<String>(
+        AppSelectField<CertificationEnum>(
             label: "Certificação",
-            items: ["NR-10", "ISO 9001"],
-            selectedValue: null,
-            onSelected: (v){}
+            items: CertificationEnum.values.toList(),
+            selectedValue: certification,
+            onSelected: (v){
+              controller.product.setAttribute(
+                  "certification",
+                  v.toString()
+              );
+              setState(() {
+                certification = v;
+              });
+            }
         ),
-        const SizedBox(height: 8),
-        AppNumberField(
-            label: "Capacidade Industrial (kg/h)",
-            onChanged: (v){}
+        AppSelectField<IndustrialCapacityEnum>(
+            label: "Capacidade Industrial",
+            items: IndustrialCapacityEnum.values.toList(),
+            selectedValue: capacity,
+            onSelected: (v){
+              controller.product.setAttribute(
+                  "industrial_capacity",
+                  v.toString()
+              );
+              setState(() {
+                capacity = v;
+              });
+            }
         ),
       ],
     );

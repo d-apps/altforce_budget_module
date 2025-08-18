@@ -13,6 +13,8 @@ class ProductDetailController extends GetxController {
     required this.dynamicFormFactory,
   });
 
+  final formKey = GlobalKey<FormState>();
+
   @override
   void onInit() {
     final productDetailArgs = Get.arguments as ProductDetailArgumentsModel;

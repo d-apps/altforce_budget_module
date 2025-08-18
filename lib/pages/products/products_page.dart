@@ -1,30 +1,25 @@
 import 'package:altforce_budget_module/pages/products/products_controller.dart';
 import 'package:altforce_budget_module/pages/products/widgets/category_widget.dart';
 import 'package:altforce_budget_module/pages/products/widgets/product_tile.dart';
-import 'package:altforce_budget_module/repositories/product_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart' show timeDilation;
 import 'package:flutter_animate/flutter_animate.dart';
+import 'package:get/get.dart';
 import 'enums/category_enum.dart';
 
 class ProductsPage extends StatefulWidget {
-  final ProductsController controller;
-  const ProductsPage({
-    required this.controller,
-    super.key
-  });
+
+  const ProductsPage({super.key});
 
   @override
   State<ProductsPage> createState() => _ProductsPageState();
 }
 
 class _ProductsPageState extends State<ProductsPage> {
-
-  ProductsController get controller => widget.controller;
+  final ProductsController controller = Get.find();
 
   @override
   void initState() {
-    controller.getProducts();
     timeDilation = 1.5;
     super.initState();
   }
@@ -66,10 +61,8 @@ class _ProductsPageState extends State<ProductsPage> {
               }).toList(),
             ),
             const SizedBox(height: 8),
-            ListenableBuilder(
-                listenable: controller,
-                builder: (context, child) => Text(
-                  "Produtos ${controller.category.name}",
+            Obx(() => Text(
+                  "Produtos ${controller.category.value.name}",
                   style: TextStyle(
                       fontSize: 18,
                       color: Colors.green,
@@ -79,10 +72,8 @@ class _ProductsPageState extends State<ProductsPage> {
             ),
             const SizedBox(height: 8),
             Expanded(
-              child: ListenableBuilder(
-                listenable: controller,
-                builder: (context, child) {
-                  if (controller.isLoading) {
+              child: Obx(() {
+                  if (controller.isLoading.value) {
                     return const Center(child: CircularProgressIndicator());
                   } else {
                     return GridView.builder(

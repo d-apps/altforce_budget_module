@@ -1,29 +1,27 @@
-// lib/ui/widgets/forms/product_form_factory.dart
-
+import 'package:altforce_budget_module/pages/detail/product_detail_controller.dart';
 import 'package:altforce_budget_module/pages/detail/widgets/dynamic_form_widget/residential/residential_form.dart';
 import 'package:flutter/material.dart';
-import 'package:altforce_budget_module/models/products/product.dart';
 import 'package:altforce_budget_module/models/products/corporate_product.dart';
 import 'package:altforce_budget_module/models/products/industrial_product.dart';
 import 'package:altforce_budget_module/models/products/residential_product.dart';
-
 import 'corporate/corporate_form.dart';
 import 'industrial/industrial_form.dart';
 
-abstract class IDynamicFormFactory<T> {
-  Widget get(T data);
+abstract class IDynamicFormFactory {
+  Widget makeDynamicFormWidget(ProductDetailController controller);
 }
 
-class DynamicFormFactory implements IDynamicFormFactory<Product> {
+class DynamicFormFactory implements IDynamicFormFactory {
 
   @override
-  Widget get(Product product) {
+  Widget makeDynamicFormWidget(ProductDetailController controller) {
+    final product = controller.product;
     if (product is CorporateProduct) {
-      return CorporateForm();
+      return CorporateForm(controller: controller);
     } else if (product is IndustrialProduct) {
-      return IndustrialForm();
+      return IndustrialForm(controller: controller);
     } else if(product is ResidentialProduct) {
-      return ResidentialForm();
+      return ResidentialForm(controller: controller);
     } else {
       return const SizedBox.shrink();
     }
