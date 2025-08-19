@@ -10,14 +10,14 @@ import '../../../core/route/app_routes.dart';
 
 class ProductDetailController extends GetxController
     with ValidatorMixin, ToastMixin {
-  late final Product product;
-  late final int index;
   final IDynamicFormFactory dynamicFormFactory;
 
   ProductDetailController({
     required this.dynamicFormFactory,
   });
 
+  late final Product product;
+  late final int index;
   final formKey = GlobalKey<FormState>();
 
   @override
