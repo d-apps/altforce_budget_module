@@ -7,7 +7,6 @@ class IndustrialProduct extends Product {
     required super.image,
     required super.price,
     required super.type,
-    super.quantity,
     required super.attributes,
   });
 
@@ -17,7 +16,6 @@ class IndustrialProduct extends Product {
     String? name,
     String? image,
     double? price,
-    int? quantity,
     Map<String, dynamic>? attributes,
     String? type,
   }) {
@@ -26,7 +24,6 @@ class IndustrialProduct extends Product {
       name: name ?? this.name,
       image: image ?? this.image,
         price: price ?? this.price,
-      quantity: quantity ?? this.quantity,
       attributes: attributes ?? Map.from(this.attributes),
       type: type ?? this.type
     );

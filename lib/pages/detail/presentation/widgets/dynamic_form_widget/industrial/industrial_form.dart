@@ -36,9 +36,9 @@ class _IndustrialFormState extends State<IndustrialForm> {
             items: VoltageEnum.values.toList(),
             selectedValue: voltage,
             onSelected: (v){
-              controller.product.setAttribute(
+              controller.product.setAttribute<int>(
                   AttributeKeys.industrial.voltage,
-                  v.toString()
+                  v.voltage
               );
               setState(() {
                 voltage = v;

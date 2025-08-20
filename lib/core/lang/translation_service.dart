@@ -9,7 +9,8 @@ class TranslationService extends Translations {
     'pt_BR': {
       AttributeKeys.corporate.volume : 'Volume Corporativo',
       AttributeKeys.corporate.contract : 'Contrato',
-      AttributeKeys.corporate.sla : 'SLA',
+      AttributeKeys.corporate.sla : 'Prazo de entrega (SLA)',
+      "account_manager" : 'Gerente',
 
       AttributeKeys.residential.color: 'Cor',
       AttributeKeys.residential.warranty: 'Garantia',

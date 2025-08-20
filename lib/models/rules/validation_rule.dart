@@ -1,15 +1,27 @@
-import 'package:altforce_budget_module/models/products/product.dart';
-import 'package:altforce_budget_module/models/rules/business_rule.dart';
+import 'package:altforce_budget_module/models/rules/i_business_rule.dart';
+import 'package:altforce_budget_module/models/strategies/i_rule_strategy.dart';
+import 'package:altforce_budget_module/models/strategies/validation/validation_strategy_factory.dart';
+import 'package:get/get.dart';
+import '../../pages/budget/models/cart_model.dart';
 
-class ValidationRule<T extends Product> implements BusinessRule<T> {
+class ValidationRule implements IBusinessRule<Rx<CartModel>> {
+  final IValidationStrategyFactory validationStrategyFactory;
+
+  ValidationRule({
+    required this.validationStrategyFactory,
+  });
 
   @override
-  void apply(T product) {
-    final voltage = product.getAttribute<int>('voltage') ?? 0;
-    final cert = product.getAttribute<String>('certification');
-    if (voltage > 220 && (cert == null || cert.isEmpty)) {
-      throw Exception("Certificação obrigatória para voltagem acima de 220V");
-    }
+  bool evaluate(Rx<CartModel> cart) {
+    final IRuleStrategy strategy = validationStrategyFactory
+        .create(cart.value.product!);
+    return strategy.validate(cart.value.product!);
   }
+
+  @override
+  int get priority => 1;
+
+  @override
+  void execute(Rx<CartModel> cart) {}
 
 }

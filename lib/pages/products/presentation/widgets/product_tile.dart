@@ -1,3 +1,4 @@
+import 'package:altforce_budget_module/core/extensions/string_extension.dart';
 import 'package:altforce_budget_module/core/route/app_routes.dart';
 import 'package:altforce_budget_module/pages/detail/models/product_detail_arguments_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -58,7 +59,7 @@ class ProductTile extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 4),
-                    Text("R\$ ${product.price}", style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w400),),
+                    Text(product.price.formatCurrency(), style: TextStyle(color: Colors.grey[600], fontWeight: FontWeight.w400),),
                     TextButton(
                       child: Row(
                         mainAxisSize: MainAxisSize.min,

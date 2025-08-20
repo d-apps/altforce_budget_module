@@ -1,10 +1,10 @@
 enum VoltageEnum {
-  v200("200V"),
-  v380("380V");
+  v200(200),
+  v380(380);
 
-  final String name;
-  const VoltageEnum(this.name);
+  final int voltage;
+  const VoltageEnum(this.voltage);
 
   @override
-  String toString() => name;
+  String toString() => "${voltage}V";
 }

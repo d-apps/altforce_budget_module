@@ -1,4 +1,5 @@
-import 'package:altforce_budget_module/core/route/app_routes.dart';
+import 'package:altforce_budget_module/core/extensions/string_extension.dart';
+import 'package:altforce_budget_module/core/widgets/app_elevated_button.dart';
 import 'package:altforce_budget_module/pages/detail/presentation/product_detail_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -51,18 +52,15 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 controller.dynamicFormFactory
                     .makeDynamicFormWidget(controller),
                 Text(
-                  "R\$ ${controller.product.price * controller.product.quantity}",
+                  controller.product.price.formatCurrency(),
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                ElevatedButton(
+                AppElevatedButton(
                     onPressed: () => controller.onSendBudget(),
-                    child: Text(
-                        "Realizar orçamento".toUpperCase(),
-                      style: TextStyle(color: Colors.white)
-                    )
+                    text: "Realizar orçamento",
                 ),
                 const SizedBox(height: 16),
               ],

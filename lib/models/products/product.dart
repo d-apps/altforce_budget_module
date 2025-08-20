@@ -8,7 +8,6 @@ abstract class Product implements BaseModel {
   final String image;
   final String type;
   final double price;
-  int quantity;
 
   /// Metadata for dynamic fields (used in dynamic forms)
   /// Example: {"color": "red", "voltage": 220}
@@ -20,7 +19,6 @@ abstract class Product implements BaseModel {
     required this.image,
     required this.price,
     required this.type,
-    this.quantity = 1,
     required this.attributes,
   });
 
@@ -34,23 +32,12 @@ abstract class Product implements BaseModel {
     return attributes[key] as T?;
   }
 
-  void incrementQuantity() {
-    quantity++;
-  }
-
-  void decrementQuantity() {
-    if (quantity > 1) {
-      quantity--;
-    }
-  }
-
   Product.empty()
       : id = '',
         name = '',
         image = '',
         type = '',
         price = 0.0,
-        quantity = 1,
         attributes = {};
 
 }

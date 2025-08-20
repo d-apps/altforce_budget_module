@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../../models/fields/app_decimal_field.dart';
 import '../../../../../../models/fields/app_select_field.dart';
 import '../../../product_detail_controller.dart';
-import 'enums/corporate_contract_enum.dart';
-import 'enums/corporate_sla_enum.dart';
+import 'enums/contract_enum.dart';
+import 'enums/sla_enum.dart';
 
 class CorporateForm extends StatefulWidget {
   final ProductDetailController controller;
@@ -21,8 +21,8 @@ class CorporateForm extends StatefulWidget {
 class _CorporateFormState extends State<CorporateForm> {
 
   ProductDetailController get controller => widget.controller;
-  CorporateContractEnum? contract;
-  CorporateSlaEnum? sla;
+  ContractEnum? contract;
+  SlaEnum? sla;
   final TextEditingController corporateVolumeController = TextEditingController();
 
   @override
@@ -41,9 +41,9 @@ class _CorporateFormState extends State<CorporateForm> {
               );
             }
         ),
-        AppSelectField<CorporateContractEnum>(
+        AppSelectField<ContractEnum>(
             label: "Contrato",
-            items: CorporateContractEnum.values.toList(),
+            items: ContractEnum.values.toList(),
             selectedValue: contract,
             onSelected: (v){
               controller.product.setAttribute<String>(
@@ -54,13 +54,13 @@ class _CorporateFormState extends State<CorporateForm> {
               });
             }
         ),
-        AppSelectField<CorporateSlaEnum>(
+        AppSelectField<SlaEnum>(
             label: "SLA",
-            items: CorporateSlaEnum.values.toList(),
+            items: SlaEnum.values.toList(),
             selectedValue: sla,
             onSelected: (v){
-              controller.product.setAttribute<String>(
-                  AttributeKeys.corporate.sla, v.toString()
+              controller.product.setAttribute<int>(
+                  AttributeKeys.corporate.sla, v.days
               );
               setState(() {
                 sla = v;

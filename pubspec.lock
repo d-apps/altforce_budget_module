@@ -81,6 +81,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  decimal:
+    dependency: transitive
+    description:
+      name: decimal
+      sha256: fc706a5618b81e5b367b01dd62621def37abc096f2b46a9bd9068b64c1fa36d0
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.2.4"
   fake_async:
     dependency: transitive
     description:
@@ -105,6 +113,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.1"
+  fixed:
+    dependency: transitive
+    description:
+      name: fixed
+      sha256: "0de882a7459991f314fc53117146174dbdb6a0f5ba33aaf2ea6399a2d64e2322"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.0"
   fixnum:
     dependency: transitive
     description:
@@ -187,6 +203,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.2"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3df61194eb431efc39c4ceba583b95633a403f46c9fd341e550ce0bfa50e9aa5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.2"
   leak_tracker:
     dependency: transitive
     description:
@@ -251,6 +275,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.16.0"
+  money2:
+    dependency: "direct main"
+    description:
+      name: money2
+      sha256: "8992486ed715acecbf8af0a1f523a7df225d5a5f6e88ac28c2a3ee22ec779dde"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.5"
   octo_image:
     dependency: transitive
     description:
@@ -331,6 +363,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.8"
+  rational:
+    dependency: transitive
+    description:
+      name: rational
+      sha256: cb808fb6f1a839e6fc5f7d8cb3b0a10e1db48b3be102de73938c627f0b636336
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.3"
   rxdart:
     dependency: transitive
     description:

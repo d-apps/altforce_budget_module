@@ -27,8 +27,7 @@ final fakeCorporateProduct = CorporateProduct(
     price: 152000,
     type: 'CorporateProduct',
     attributes: {
-      "serviceLevel": "Premium",
-      "accountManager": "João Silva",
+      "account_manager": "João Silva",
     }
 );
 

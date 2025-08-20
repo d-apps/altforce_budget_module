@@ -17,12 +17,5 @@ abstract class AppThemeData {
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: Colors.green,
       ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.green,
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
-          minimumSize: const Size(double.infinity, 50),
-        ),
-    )
   );
 }
