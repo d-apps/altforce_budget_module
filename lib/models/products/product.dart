@@ -8,9 +8,6 @@ abstract class Product implements BaseModel {
   final String image;
   final String type;
   final double price;
-
-  /// Metadata for dynamic fields (used in dynamic forms)
-  /// Example: {"color": "red", "voltage": 220}
   final Map<String, dynamic> attributes;
 
   Product({

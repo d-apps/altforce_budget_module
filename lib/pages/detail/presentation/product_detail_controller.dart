@@ -9,7 +9,7 @@ import 'package:get/get.dart';
 import '../../../core/route/app_routes.dart';
 
 class ProductDetailController extends GetxController
-    with ValidatorMixin, ToastMixin {
+    with AttributesValidatorMixin, ToastMixin {
   final IDynamicFormFactory dynamicFormFactory;
 
   ProductDetailController({
