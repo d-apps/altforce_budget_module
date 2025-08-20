@@ -22,11 +22,13 @@ class BudgetController extends GetxController with ToastMixin {
       quantity: 1,
       totalPrice: product.price * 1,
     );
-    updateAll();
+    updateCart();
     super.onInit();
   }
 
-  void updateAll(){
+  void updateCart(){
+    cart.value.discount = "";
+    cart.value.additionalCharge = "";
     updateTotalPrice();
     processRules();
     cart.refresh();
@@ -35,7 +37,7 @@ class BudgetController extends GetxController with ToastMixin {
   void updateQuantity(String? value) {
     final quantity = int.tryParse(value!) ?? 1;
     cart.value.quantity = quantity;
-    updateAll();
+    updateCart();
   }
 
   void updateTotalPrice() {

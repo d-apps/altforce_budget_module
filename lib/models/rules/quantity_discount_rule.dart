@@ -15,7 +15,7 @@ class QuantityDiscountRule implements IBusinessRule<Rx<CartModel>> {
   @override
   void execute(Rx<CartModel> cart) {
     cart.value.totalPrice *= 0.85;
-    cart.value.discount = "15% aplicado!";
+    cart.value.discount = "-15% aplicado!";
     cart.refresh();
   }
 

@@ -2,6 +2,7 @@ import 'package:altforce_budget_module/core/extensions/string_extension.dart';
 import 'package:altforce_budget_module/core/widgets/app_elevated_button.dart';
 import 'package:altforce_budget_module/models/fields/app_number_field.dart';
 import 'package:altforce_budget_module/pages/budget/presentation/widgets/budget_text.dart';
+import 'package:altforce_budget_module/pages/success/success_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -64,14 +65,20 @@ class BudgetPage extends GetView<BudgetController> {
                 label: "Valor adicional:",
                 text: controller.cart.value.additionalCharge
             )),
+            const SizedBox(height: 16),
             Obx(() => BudgetText(
               label: "Total:",
-              labelStyle: TextStyle(fontWeight: FontWeight.bold),
+              labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 19),
               text: controller.cart.value.totalPrice.formatCurrency(),
-              textStyle: TextStyle(fontWeight: FontWeight.bold),
+              textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             )),
+            const SizedBox(height: 8),
             AppElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  Get.to(() => const SuccessPage(
+                      title: 'Orçamento realizado com sucesso!'
+                  ));
+                },
                 text: "Finalizar orçamento"
             )
           ],
