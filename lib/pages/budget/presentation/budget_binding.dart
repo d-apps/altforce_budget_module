@@ -1,5 +1,5 @@
 import 'package:altforce_budget_module/pages/budget/presentation/budget_controller.dart';
-import 'package:altforce_budget_module/services/rules_engine/rule_engine.dart';
+import 'package:altforce_budget_module/services/rule_engine.dart';
 import 'package:get/get.dart';
 
 import '../../../models/strategies/validation/validation_strategy_factory.dart';

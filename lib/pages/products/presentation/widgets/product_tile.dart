@@ -56,6 +56,8 @@ class ProductTile extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: Colors.green
                       ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 4),
@@ -83,10 +85,10 @@ class ProductTile extends StatelessWidget {
   }
 
   void navigate(BuildContext context){
-    final argument = ProductDetailArgumentsModel(product: product, index: index);
+    final arguments = ProductDetailArgumentsModel(product: product, index: index);
       Get.toNamed(
           AppRoutes.productsDetail.name,
-          arguments: argument
+          arguments: arguments
       );
   }
 

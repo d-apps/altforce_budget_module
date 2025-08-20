@@ -15,16 +15,6 @@ class CartModel {
     this.additionalCharge = '',
   });
 
-  void incrementQuantity() {
-    quantity++;
-  }
-
-  void decrementQuantity() {
-    if (quantity > 1) {
-      quantity--;
-    }
-  }
-
   factory CartModel.empty() {
     return CartModel(
       product: null,

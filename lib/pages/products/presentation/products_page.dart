@@ -79,11 +79,11 @@ class _ProductsPageState extends State<ProductsPage> {
                     return GridView.builder(
                       shrinkWrap: true,
                       gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                            crossAxisCount: 2,
+                          const SliverGridDelegateWithMaxCrossAxisExtent(
                             mainAxisSpacing: 8,
                             crossAxisSpacing: 8,
                             childAspectRatio: 0.72,
+                            maxCrossAxisExtent: 200,
                           ),
                       itemCount: controller.products.length,
                       itemBuilder: (context, index) {

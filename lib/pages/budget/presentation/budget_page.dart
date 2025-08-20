@@ -49,9 +49,8 @@ class BudgetPage extends GetView<BudgetController> {
             }).values,
             const SizedBox(height: 8),
             AppNumberField(
-              initialValue: "1",
+              controller: controller.quantityController.value,
               label: "Quantidade",
-              onChanged: controller.updateQuantity,
             ),
             BudgetText(
                 label: "Valor:",
@@ -73,14 +72,14 @@ class BudgetPage extends GetView<BudgetController> {
               textStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             )),
             const SizedBox(height: 8),
-            AppElevatedButton(
-                onPressed: (){
+            Obx(() => AppElevatedButton(
+                onPressed: controller.quantityController.value.text.isNotEmpty ? (){
                   Get.to(() => const SuccessPage(
                       title: 'Orçamento realizado com sucesso!'
                   ));
-                },
+                }: null,
                 text: "Finalizar orçamento"
-            )
+            ))
           ],
         ),
       ),

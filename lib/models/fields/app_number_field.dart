@@ -5,7 +5,7 @@ class AppNumberField extends ff.IFormField {
 
   AppNumberField({
     required super.label,
-    required super.onChanged,
+    super.onChanged,
     super.controller,
     super.initialValue,
     super.key

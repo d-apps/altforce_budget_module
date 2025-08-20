@@ -4,7 +4,7 @@ import 'package:altforce_budget_module/models/rules/sla_tax_rule.dart';
 import 'package:altforce_budget_module/models/rules/validation_rule.dart';
 import 'package:altforce_budget_module/pages/budget/models/cart_model.dart';
 import 'package:get/get.dart';
-import '../../models/rules/i_business_rule.dart';
+import '../models/rules/i_business_rule.dart';
 
 abstract class IRuleEngine<T> {
   void process(T context);

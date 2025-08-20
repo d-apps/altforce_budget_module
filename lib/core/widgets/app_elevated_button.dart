@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppElevatedButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   const AppElevatedButton({
     required this.text,
