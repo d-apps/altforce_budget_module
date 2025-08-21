@@ -11,18 +11,36 @@ import 'package:get/get.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockRepository extends Mock implements IRepository<Product> {}
-class MockIndustrialProduct extends Mock implements IndustrialProduct {}
-class MockResidentialProduct extends Mock implements ResidentialProduct {}
-class MockCorporateProduct extends Mock implements CorporateProduct {}
 
 void main() {
   late ProductsController sut;
   late MockRepository mockRepository;
 
   final mockProducts = <Product>[
-    MockIndustrialProduct(),
-    MockResidentialProduct(),
-    MockCorporateProduct(),
+    IndustrialProduct(
+      id: '1',
+      name: '',
+      image: "",
+      price: 100.0,
+      attributes: {},
+      type: ""
+    ),
+    ResidentialProduct(
+        id: '1',
+        name: '',
+        image: "",
+        price: 100.0,
+        attributes: {},
+        type: ""
+    ),
+    CorporateProduct(
+        id: '1',
+        name: '',
+        image: "",
+        price: 100.0,
+        attributes: {},
+        type: ""
+    ),
   ];
 
   void mockGetAllProducts() {
@@ -61,11 +79,8 @@ void main() {
 
   group("onCategorySelected", () {
     test("should update the category and filter the product list", () async {
-
       await sut.getProducts();
-
       sut.onCategorySelected(CategoryEnum.residental);
-
       expect(sut.category.value, CategoryEnum.residental);
       expect(sut.products.length, 1);
       expect(sut.products.first, isA<ResidentialProduct>());
