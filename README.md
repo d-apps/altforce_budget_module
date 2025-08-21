@@ -9,8 +9,19 @@ de projeto de software.
     <img src="https://raw.githubusercontent.com/d-apps/altforce_budget_module/refs/heads/main/screenshots/1.png" />
     <img src="https://raw.githubusercontent.com/d-apps/altforce_budget_module/refs/heads/main/screenshots/2.png" />
     <img src="https://raw.githubusercontent.com/d-apps/altforce_budget_module/refs/heads/main/screenshots/3.png" />
-    <img src="https://raw.githubusercontent.com/d-apps/altforce_budget_module/refs/heads/main/screenshots/4.png" />
 </p>
+
+### Diretórios Importantes
+
+A pasta docs possuem os documentos:
+
+- docs/DRY.md: Analise DRY (Don't Repeat Yourself) aplicado no projeto.
+- docs/Generics and Constraints Documentation.md: Explicação sobre o uso de genéricos e restrições no projeto.
+- docs/Products Diagram Classv: Diagrama de classes dos produtos.
+- docs/Rules Diagram Class.md: Diagrama de classes das regras de negócio.
+
+- screenshots: Screenshots das telas principais.
+
 
 ### Arquitetura e Conceitos-Chave
 
@@ -42,16 +53,26 @@ são centralizadas na RuleEngine e suas estratégias, evitando duplicação de c
 
 ## Instruções de Execução
 
+Para rodar os testes unitários rode o comando abaixo no terminal:
+
+```dart
+flutter test
+```
+
 Para executar o projeto, siga os passos abaixo:
 
 Instale as Dependências:
 
 Navegue até a pasta do projeto e execute o comando para instalar as dependências do Flutter.
 
+```dart
 flutter pub get
+```
 
 Execute o Projeto:
 
 Conecte um dispositivo ou inicie um emulador e execute o projeto com o comando:
 
+```dart
 flutter run
+```

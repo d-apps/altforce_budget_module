@@ -51,19 +51,16 @@ class ProductsController extends GetxController {
     filterProductList();
   }
 
+  final categoryMap = <CategoryEnum, Type>{
+    CategoryEnum.industrial: IndustrialProduct,
+    CategoryEnum.residental: ResidentialProduct,
+    CategoryEnum.corporate: CorporateProduct,
+  };
+
   void filterProductList(){
-    late List<Product> list;
-    switch(category.value){
-      case CategoryEnum.industrial:
-        list = _productsSourceList
-            .whereType<IndustrialProduct>().toList();
-      case CategoryEnum.residental:
-        list = _productsSourceList
-            .whereType<ResidentialProduct>().toList();
-      case CategoryEnum.corporate:
-        list = _productsSourceList
-            .whereType<CorporateProduct>().toList();
-    }
+    final productType = categoryMap[category.value];
+    final list = _productsSourceList
+        .where((product) => product.runtimeType == productType);
     products.assignAll(list);
   }
 

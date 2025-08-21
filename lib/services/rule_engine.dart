@@ -8,6 +8,7 @@ import '../models/rules/i_business_rule.dart';
 
 abstract class IRuleEngine<T> {
   void process(T context);
+  List<IBusinessRule> get rules;
 }
 
 class RuleEngine implements IRuleEngine<Rx<CartModel>>  {
@@ -15,6 +16,7 @@ class RuleEngine implements IRuleEngine<Rx<CartModel>>  {
 
   RuleEngine({required this.priorityManager});
 
+  @override
   List<IBusinessRule> rules = [
     ValidationRule(validationStrategyFactory: Get.find()),
     QuantityDiscountRule(),

@@ -29,12 +29,7 @@ class AttributesValidator implements IAttributesValidator {
       AttributeKeys.corporate.sla,
     ];
 
-    for (var key in requiredKeys) {
-      if (!attributes.containsKey(key) || attributes[key] == null) {
-        return key;
-      }
-    }
-    return null;
+    return _validateRequiredAttributes(attributes, requiredKeys);
   }
 
   String? _validateIndustrialAttributes(Map<String, dynamic> attributes) {
@@ -44,12 +39,7 @@ class AttributesValidator implements IAttributesValidator {
       AttributeKeys.industrial.voltage,
     ];
 
-    for (var key in requiredKeys) {
-      if (!attributes.containsKey(key) || attributes[key] == null) {
-        return key;
-      }
-    }
-    return null;
+    return _validateRequiredAttributes(attributes, requiredKeys);
   }
 
   String? _validateResidentialAttributes(Map<String, dynamic> attributes) {
@@ -59,6 +49,10 @@ class AttributesValidator implements IAttributesValidator {
       AttributeKeys.residential.finish,
     ];
 
+   return _validateRequiredAttributes(attributes, requiredKeys);
+  }
+
+  String? _validateRequiredAttributes(Map<String, dynamic> attributes, List<String> requiredKeys) {
     for (var key in requiredKeys) {
       if (!attributes.containsKey(key) || attributes[key] == null) {
         return key;
