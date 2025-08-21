@@ -8,7 +8,9 @@ class ProductDetailBinding extends Bindings {
   void dependencies() {
     Get.put<IDynamicFormFactory>(DynamicFormFactory());
     Get.put(ProductDetailController(
-        dynamicFormFactory: Get.find()
+        dynamicFormFactory: Get.find(),
+        toastService: Get.find(),
+        attributesValidator: Get.find(),
     ));
   }
 

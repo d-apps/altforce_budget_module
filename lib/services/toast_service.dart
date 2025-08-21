@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-mixin ToastMixin {
+abstract class IToastService {
+  void showToast(String title, String message);
+  void showErrorToast(String title, String message);
+}
+
+class ToastService implements IToastService {
+  @override
   void showToast(String title, String message) {
     Get.snackbar(
       title,
@@ -14,6 +20,7 @@ mixin ToastMixin {
     );
   }
 
+  @override
   void showErrorToast(String title, String message) {
     Get.snackbar(
       title,

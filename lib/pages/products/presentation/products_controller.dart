@@ -32,7 +32,6 @@ class ProductsController extends GetxController {
 
   Future<void> getProducts() async {
     setLoading(true);
-    await Future.delayed(const Duration(seconds: 2));
     final result = await _repository.getAll();
     switch(result){
       case Success<List<Product>>():

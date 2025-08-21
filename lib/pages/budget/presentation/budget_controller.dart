@@ -1,17 +1,19 @@
-import 'package:altforce_budget_module/core/mixins/toast_mixin.dart';
 import 'package:altforce_budget_module/pages/budget/models/cart_model.dart';
 import 'package:altforce_budget_module/services/rule_engine.dart';
+import 'package:altforce_budget_module/services/toast_service.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../models/products/product.dart';
 
-class BudgetController extends GetxController with ToastMixin {
+class BudgetController extends GetxController {
   final IRuleEngine ruleEngine;
+  final IToastService toastService;
   final Rx<CartModel> cart = CartModel.empty().obs;
   final quantityController = TextEditingController(text: "1").obs;
 
   BudgetController({
     required this.ruleEngine,
+    required this.toastService,
   });
 
   @override
@@ -55,7 +57,7 @@ class BudgetController extends GetxController with ToastMixin {
       ruleEngine.process(cart);
     } catch(e){
       print(e.toString());
-      showErrorToast("Ocorreu um erro!", e.toString());
+      toastService.showErrorToast("Ocorreu um erro!", e.toString());
     }
   }
 

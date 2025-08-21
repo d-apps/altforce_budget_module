@@ -8,9 +8,12 @@ class BudgetBinding extends Bindings {
   @override
   void dependencies() {
     Get.put<IValidationStrategyFactory>(ValidationStrategyFactory());
-    Get.put<IRuleEngine>(RuleEngine());
+    Get.put<IRuleEngine>(RuleEngine(
+      priorityManager: Get.find()
+    ));
     Get.put(BudgetController(
-      ruleEngine: Get.find()
+      ruleEngine: Get.find(),
+        toastService: Get.find()
     ));
   }
 }

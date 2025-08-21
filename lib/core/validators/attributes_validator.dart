@@ -4,9 +4,14 @@ import 'package:altforce_budget_module/models/products/industrial_product.dart';
 import 'package:altforce_budget_module/models/products/product.dart';
 import 'package:altforce_budget_module/models/products/residential_product.dart';
 
-mixin AttributesValidatorMixin {
+abstract class IAttributesValidator {
+  String? validate(Product product);
+}
 
-  String? validateAttributes(Product product) {
+class AttributesValidator implements IAttributesValidator {
+
+  @override
+  String? validate(Product product) {
     if (product is CorporateProduct) {
       return _validateCorporateAttributes(product.attributes);
     } else if (product is IndustrialProduct) {

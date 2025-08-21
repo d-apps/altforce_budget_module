@@ -1,5 +1,5 @@
 import 'package:altforce_budget_module/core/constants/attributes_keys.dart';
-import 'package:altforce_budget_module/core/mixins/attributes_validator_mixin.dart';
+import 'package:altforce_budget_module/core/validators/attributes_validator.dart';
 import 'package:altforce_budget_module/models/products/corporate_product.dart';
 import 'package:altforce_budget_module/models/products/industrial_product.dart';
 import 'package:altforce_budget_module/models/products/product.dart';
@@ -7,20 +7,16 @@ import 'package:altforce_budget_module/models/products/residential_product.dart'
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
-// Mocks para simular os diferentes tipos de produtos
 class MockCorporateProduct extends Mock implements CorporateProduct {}
 class MockIndustrialProduct extends Mock implements IndustrialProduct {}
 class MockResidentialProduct extends Mock implements ResidentialProduct {}
 class MockProduct extends Mock implements Product {}
 
-// Classe de teste que usa o mixin
-class TestClass with AttributesValidatorMixin {}
-
 void main() {
-  late TestClass sut;
+  late AttributesValidator sut;
 
   setUp(() {
-    sut = TestClass();
+    sut = AttributesValidator();
   });
 
   group('validateAttributes', () {
@@ -34,7 +30,7 @@ void main() {
           AttributeKeys.corporate.contract: 'Contrato A',
           AttributeKeys.corporate.sla: 7,
         });
-        final result = sut.validateAttributes(mockCorporateProduct);
+        final result = sut.validate(mockCorporateProduct);
         expect(result, isNull);
       });
 
@@ -43,7 +39,7 @@ void main() {
           AttributeKeys.corporate.volume: 100,
           AttributeKeys.corporate.contract: 'Contrato A',
         });
-        final result = sut.validateAttributes(mockCorporateProduct);
+        final result = sut.validate(mockCorporateProduct);
         expect(result, AttributeKeys.corporate.sla);
       });
     });
@@ -58,7 +54,7 @@ void main() {
           AttributeKeys.industrial.certification: 'Certificação XYZ',
           AttributeKeys.industrial.voltage: 220,
         });
-        final result = sut.validateAttributes(mockIndustrialProduct);
+        final result = sut.validate(mockIndustrialProduct);
         expect(result, isNull);
       });
 
@@ -67,7 +63,7 @@ void main() {
           AttributeKeys.industrial.industrialCapacity: 500,
           AttributeKeys.industrial.certification: 'Certificação XYZ',
         });
-        final result = sut.validateAttributes(mockIndustrialProduct);
+        final result = sut.validate(mockIndustrialProduct);
         expect(result, AttributeKeys.industrial.voltage);
       });
     });
@@ -82,7 +78,7 @@ void main() {
           AttributeKeys.residential.warranty: '1 ano',
           AttributeKeys.residential.finish: 'Matte',
         });
-        final result = sut.validateAttributes(mockResidentialProduct);
+        final result = sut.validate(mockResidentialProduct);
         expect(result, isNull);
       });
 
@@ -91,14 +87,14 @@ void main() {
           AttributeKeys.residential.color: 'White',
           AttributeKeys.residential.warranty: '1 ano',
         });
-        final result = sut.validateAttributes(mockResidentialProduct);
+        final result = sut.validate(mockResidentialProduct);
         expect(result, AttributeKeys.residential.finish);
       });
     });
 
     test('should return null for an unsupported product type', () {
       final mockGenericProduct = MockProduct();
-      final result = sut.validateAttributes(mockGenericProduct);
+      final result = sut.validate(mockGenericProduct);
       expect(result, isNull);
     });
   });
