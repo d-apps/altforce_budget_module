@@ -17,11 +17,9 @@ A pasta docs possuem os documentos:
 
 - docs/DRY.md: Analise DRY (Don't Repeat Yourself) aplicado no projeto.
 - docs/Generics and Constraints Documentation.md: Explicação sobre o uso de genéricos e restrições no projeto.
-- docs/Products Diagram Classv: Diagrama de classes dos produtos.
+- docs/Products Diagram Class.md: Diagrama de classes dos produtos.
 - docs/Rules Diagram Class.md: Diagrama de classes das regras de negócio.
-
-- screenshots: Screenshots das telas principais.
-
+- screenshots/: Screenshots das telas principais.
 
 ### Arquitetura e Conceitos-Chave
 
