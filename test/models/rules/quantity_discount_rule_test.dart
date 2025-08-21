@@ -4,28 +4,28 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 
 void main(){
-  late QuantityDiscountRule rule;
+  late QuantityDiscountRule sut;
 
   setUp(() {
-    rule = QuantityDiscountRule();
+    sut = QuantityDiscountRule();
   });
 
   group("evaluate",(){
     test("should return false when quantity is less than 50", (){
       final cart = CartModel(product: null, quantity: 1).obs;
-      final result = rule.evaluate(cart);
+      final result = sut.evaluate(cart);
       expect(result, false);
     });
 
     test("should return true if quantity is equal to 50", (){
       final cart = CartModel(product: null, quantity: 50).obs;
-      final result = rule.evaluate(cart);
+      final result = sut.evaluate(cart);
       expect(result, true);
     });
 
     test("should return true if quantity is more than 50", (){
       final cart = CartModel(product: null, quantity: 51).obs;
-      final result = rule.evaluate(cart);
+      final result = sut.evaluate(cart);
       expect(result, true);
     });
   });
@@ -35,7 +35,7 @@ void main(){
       final cart = CartModel(product: null, quantity: 50, totalPrice: 100.0).obs;
       final initialPrice = cart.value.totalPrice;
       final priceWithDiscount = initialPrice * 0.85;
-      rule.execute(cart);
+      sut.execute(cart);
       expect(cart.value.totalPrice, priceWithDiscount);
       expect(cart.value.discount, isNotEmpty);
     });

@@ -10,7 +10,10 @@ class SlaTaxRule implements IBusinessRule<Rx<CartModel>> {
   bool evaluate(Rx<CartModel> cart) {
     if(cart.value.product! is CorporateProduct){
       final product = cart.value.product!;
-      final sla = product.getAttribute<int>(AttributeKeys.corporate.sla)!;
+      final sla = product.getAttribute<int>(AttributeKeys.corporate.sla);
+      if(sla == null){
+        throw Exception("O SLA não foi definido para o produto corporativo!");
+      }
       return sla < 7;
     }
     return false;

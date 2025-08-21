@@ -1,5 +1,5 @@
 import 'package:altforce_budget_module/core/mixins/toast_mixin.dart';
-import 'package:altforce_budget_module/core/mixins/validator_mixin.dart';
+import 'package:altforce_budget_module/core/mixins/attributes_validator_mixin.dart';
 import 'package:altforce_budget_module/models/products/product.dart';
 import 'package:altforce_budget_module/pages/detail/models/product_detail_arguments_model.dart';
 import 'package:altforce_budget_module/pages/detail/presentation/widgets/dynamic_form_widget/dynamic_form_factory.dart';
