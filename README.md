@@ -5,6 +5,13 @@ de orçamento dinâmico e inteligente. A arquitetura foi desenvolvida para ser e
 manutenível e flexível, seguindo os princípios de Design Orientado a Objetos (POO) e padrões 
 de projeto de software.
 
+<p align='center'>
+    <img src="https://raw.githubusercontent.com/d-apps/altforce_budget_module/refs/heads/main/screenshots/1.png" />
+    <img src="https://raw.githubusercontent.com/d-apps/altforce_budget_module/refs/heads/main/screenshots/2.png" />
+    <img src="https://raw.githubusercontent.com/d-apps/altforce_budget_module/refs/heads/main/screenshots/3.png" />
+    <img src="https://raw.githubusercontent.com/d-apps/altforce_budget_module/refs/heads/main/screenshots/4.png" />
+</p>
+
 ### Arquitetura e Conceitos-Chave
 
 O projeto é construído em torno dos seguintes pilares:
